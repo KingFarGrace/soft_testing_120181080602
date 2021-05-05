@@ -15,7 +15,13 @@ public class StudentList {
     }
 
     public void createStudent(Student student) {
-        this.studentList.add(student);
+        if (retrieveStudent(student.id) == null) {
+            this.studentList.add(student);
+            System.out.println("创建学生信息成功！");
+        }
+        else {
+            System.out.println("该id已被占用！");
+        }
     }
 
     public Student retrieveStudent(int id) {
